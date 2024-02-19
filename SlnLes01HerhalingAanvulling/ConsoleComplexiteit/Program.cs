@@ -22,6 +22,11 @@ namespace ConsoleComplexiteit
                     Console.ReadLine();
                 }
 
+                else if (IsLetter(woord) == false) 
+                {
+                    Console.WriteLine("Gelieve een woord te schrijven met alleen letters");
+                }
+
                 else
                 {
                     Console.WriteLine("aantal karakters: " + AantalKarakters(woord));
@@ -90,6 +95,9 @@ namespace ConsoleComplexiteit
                     case "x":
                     case "y":
                     case "q":
+                    case "X":
+                    case "Y":
+                    case "Q":
                         lettersxyq++;break;
                     default: break;
                 }
@@ -97,6 +105,21 @@ namespace ConsoleComplexiteit
             int complexiteit = ((AantalKarakters(woord) / 3) + AantalLettergrepen(woord) + lettersxyq);
 
                 return complexiteit;
+        }
+
+        static bool IsLetter (string woord)
+        {
+            bool IsHetEenLetter = true;
+                foreach (char karakter in woord)
+                {
+
+            
+                    if (!((Convert.ToInt32(karakter)<91) && (Convert.ToInt32(karakter)>64))  || !((Convert.ToInt32(karakter)<126) && (Convert.ToInt32(karakter)>96) ))
+                    {
+                        IsHetEenLetter = false;
+                    }
+                }
+            return IsHetEenLetter;
         }
     }
 }
