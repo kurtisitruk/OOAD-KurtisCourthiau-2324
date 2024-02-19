@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:WpfComplexiteit"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="ANALYSEER" HorizontalAlignment="Left" Margin="503,100,0,0" VerticalAlignment="Top" Width="107" Height="34" FontSize="15"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="75,238,0,0" VerticalAlignment="Top" Height="111" Width="262" FontSize="15" />
+    <Grid Background="#FFEE7A19">
+        <Button x:Name="Analyseerbtn" Content="ANALYSEER" HorizontalAlignment="Left" Margin="503,100,0,0" VerticalAlignment="Top" Width="107" Height="34" FontSize="15" Click="Analyseerbtn_Click"/>
+        <Label x:Name="complexiteitlbl" Content="" HorizontalAlignment="Left" Margin="75,238,0,0" VerticalAlignment="Top" Height="171" Width="471" FontSize="15" />
+        <TextBox x:Name="woordtbx" HorizontalAlignment="Left" Height="34" Margin="75,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="15"/>
 
     </Grid>
 </Window>
