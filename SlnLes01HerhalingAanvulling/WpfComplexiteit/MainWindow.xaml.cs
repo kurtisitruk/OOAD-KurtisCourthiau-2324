@@ -21,27 +21,21 @@ namespace WpfComplexiteit
     public partial class MainWindow : Window
     {
         string woord;
-        bool Klinker = false;
-        bool IsHetEenLetter = false;
-        int karakters = 0;
-        int Lettergrepen = 0;
-        char letter;
+        bool IsHetEenLetter; 
         public MainWindow()
         {
             
             InitializeComponent();
             
 
-    }
+        }
 
         private void Analyseerbtn_Click(object sender, RoutedEventArgs e)
         {
             woord = woordtbx.Text;
-            IsKlinker(letter);
-            IsLetter(woord);
             AantalKarakters(woord);
-            AantalLettergrepen(woord);
-            complexiteitlbl.Content = "aantal karakters: " + AantalKarakters(woord) + " aantal lettergrepen: " + AantalLettergrepen(woord);
+            int complexiteitnr = Complexiteit(woord);
+            complexiteitlbl.Content = "aantal karakters: " + AantalKarakters(woord) + " aantal lettergrepen: " + AantalLettergrepen(woord) + " Complexiteit: " + complexiteitn;
 
         }
 
@@ -56,57 +50,90 @@ namespace WpfComplexiteit
                     case "o":
                     case "u":
                     case "y":
-                        Klinker = true; break;
-                    default: break;
+                        return true; 
+                    default: 
+                        return false;
+
                 }
-            return Klinker;
             
         }
 
-        public void IsLetter(string woord)
+        public bool IsLetter(string woord)
         {
             foreach (char karakter in woord)
             {
-
-
-                if (((karakter<='Z') && (karakter>='A')) || ((karakter >= 'a') && (karakter <= 'z')))
+                if (IsHetEenLetter == true)
                 {
-                    IsHetEenLetter = true;
-                    return;
+                    if (((karakter <= 'Z') && (karakter >= 'A')) || ((karakter >= 'a') && (karakter <= 'z')))
+                    {
+
+                        IsHetEenLetter = true;
+                    }
+                    else
+                    {
+                        IsHetEenLetter = false;
+                    }
                 }
                 
             }
+
+            return IsHetEenLetter;
         }
 
         public int AantalKarakters(string woord)
         {
-            int karakters = 0;
-            foreach (char letter in woord)
-            {
-                karakters++;
-            }
-            return karakters;
+            return woord.Length;
         }
 
         public int AantalLettergrepen(string woord)
         {
-            int index = 0;
-            string woord2 = "w" + woord;
-            foreach (char letter1 in woord)
-            {
+            int aantalLettergrepen = 0;
+            bool vorigeKlinker = false;
 
-                char letter2 = woord2[index];
-                if (IsKlinker(letter1) == false && IsKlinker(letter2) == true)
+            foreach (char letter in woord)
+            {
+                if (IsKlinker(letter) && !vorigeKlinker)
                 {
-                    Lettergrepen++;
+                    aantalLettergrepen++;
                 }
-                index++;
+                vorigeKlinker = IsKlinker(letter);
             }
 
-            return Lettergrepen;
+            return aantalLettergrepen;
         }
 
+        public int letterxyz(string woord)
+        {
+            int ErIsxyq = 0;
+            bool xyq = false;
+            foreach (char letter in woord)
+            {
+                switch (Convert.ToString(letter))
+                {
+                    case "x":
+                    case "y":
+                    case "q":
+                    case "X":
+                    case "Y":
+                    case "Q":
+                        xyq = true; break;
+                    default: xyq = false; break;
+                }
+            }
+            if (xyq == true)
+            {
+                ErIsxyq = 1;
+            }
+            return ErIsxyq;
+        }
 
+        public int Complexiteit(string woord)
+        {
+                int complexiteit = (AantalKarakters(woord) / 3) + (AantalLettergrepen(woord)) + letterxyz(woord);
+                return complexiteit;
+        }
+
+       
 
     }
 }
