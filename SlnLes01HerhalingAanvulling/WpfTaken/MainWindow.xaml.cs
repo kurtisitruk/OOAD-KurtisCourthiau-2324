@@ -1,80 +1,128 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-namespace TaskManager
+namespace WpfTaken
 {
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
-        private Stack<ListBoxItem> removedItems = new Stack<ListBoxItem>();
 
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+        private void toekijkenBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CheckForm();
         }
 
-        private void CheckForm(object sender, RoutedEventArgs e)
+        private void TerugzettenBtn_Click(object sender, RoutedEventArgs e)
         {
-            addButton.IsEnabled = !string.IsNullOrWhiteSpace(taskTextBox.Text) && priorityComboBox.SelectedItem != null;
-        }
-
-        private void AddButton_Click(object sender, RoutedEventArgs e)
-        {
-            var taskItem = new ListBoxItem();
-            taskItem.Content = taskTextBox.Text;
-            taskItem.Foreground = Brushes.Black;
-
-            switch (((ComboBoxItem)priorityComboBox.SelectedItem).Content.ToString())
+            if (TakenLbx.SelectedIndex != -1)
             {
-                case "Low":
-                    taskItem.Background = Brushes.Green;
-                    taskItem.ToolTip = "Low Priority";
-                    break;
-                case "Medium":
-                    taskItem.Background = Brushes.Yellow;
-                    taskItem.ToolTip = "Medium Priority";
-                    break;
-                case "High":
-                    taskItem.Background = Brushes.Red;
-                    taskItem.ToolTip = "High Priority";
-                    break;
+                ListBoxItem item = (ListBoxItem)TakenLbx.SelectedItem;
+                TakenLbx.Items.Remove(item);
             }
-
-            taskListBox.Items.Add(taskItem);
-
-            taskTextBox.Clear();
-            priorityComboBox.SelectedIndex = -1;
-
-            CheckForm(null, null); // Clear any error messages
+            CheckButtonsEnabled();
         }
 
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        private void VerwijderenBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (taskListBox.SelectedItem != null)
+            if (TakenLbx.SelectedIndex != -1)
             {
-                var selectedItem = (ListBoxItem)taskListBox.SelectedItem;
-                removedItems.Push(selectedItem);
-                taskListBox.Items.Remove(selectedItem);
-                restoreButton.IsEnabled = true;
-                deleteButton.IsEnabled = false;
+                ListBoxItem item = (ListBoxItem)TakenLbx.SelectedItem;
+                TakenLbx.Items.Remove(item);
+                ControleerLbl.Content = "";
             }
+            CheckButtonsEnabled();
         }
 
-        private void RestoreButton_Click(object sender, RoutedEventArgs e)
+        private void CheckForm()
         {
-            if (removedItems.Count > 0)
+            if (Taaktbx.Text == "")
             {
-                var removedItem = removedItems.Pop();
-                taskListBox.Items.Add(removedItem);
-                restoreButton.IsEnabled = removedItems.Count > 0;
-                deleteButton.IsEnabled = true;
+                ControleerLbl.Content = "Gelieve een naam te geven aan uw taak";
+            }
+            else if (ProriteitCbx.SelectedIndex == 0)
+            {
+                ControleerLbl.Content = "Gelieve een prioriteit te selecteren";
+            }
+            else if (DateDp.SelectedDate == null)
+            {
+                ControleerLbl.Content = "Gelieve een deadline te selecteren";
+            }
+            else if (!(AdamRbn.IsChecked == true || BilalRbn.IsChecked == true || ChelseyRbn.IsChecked == true))
+            {
+                ControleerLbl.Content = "Gelieve een persoon toe te voegen";
+            }
+            else
+            {
+                AddTask();
             }
         }
 
-        private void TaskListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void AddTask()
         {
-            deleteButton.IsEnabled = taskListBox.SelectedItem != null;
+            ListBoxItem item = new ListBoxItem();
+            item.Content = Taaktbx.Text;
+            item.Background = GetPriorityColor(ProriteitCbx.Text);
+            TakenLbx.Items.Add(item);
+            Taaktbx.Text = "";
+            ProriteitCbx.SelectedIndex = 0;
+            DateDp.SelectedDate = null;
+            AdamRbn.IsChecked = false;
+            BilalRbn.IsChecked = false;
+            ChelseyRbn.IsChecked = false;
+            ControleerLbl.Content = "";
+            CheckButtonsEnabled();
+        }
+
+        private void CheckButtonsEnabled()
+        {
+            VerwijderenBtn.IsEnabled = TakenLbx.SelectedIndex != -1;
+            TerugzettenBtn.IsEnabled = TakenLbx.Items.Count > 0;
+        }
+
+        private Brush GetPriorityColor(string priority)
+        {
+            switch (priority.ToLower())
+            {
+                case "zeer hoog":
+                    return Brushes.Red;
+                case "hoog":
+                    return Brushes.Orange;
+                case "matig":
+                    return Brushes.Yellow;
+                case "laag":
+                    return Brushes.Green;
+                case "zeer laag":
+                    return Brushes.Blue;
+                default:
+                    return Brushes.Transparent;
+            }
+        }
+
+        private void TakenLbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CheckButtonsEnabled();
         }
     }
+
+
 }
+

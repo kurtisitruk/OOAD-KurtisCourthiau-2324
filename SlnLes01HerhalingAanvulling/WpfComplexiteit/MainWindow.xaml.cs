@@ -35,7 +35,7 @@ namespace WpfComplexiteit
             woord = woordtbx.Text;
             AantalKarakters(woord);
             int complexiteitnr = Complexiteit(woord);
-            complexiteitlbl.Content = "aantal karakters: " + AantalKarakters(woord) + " aantal lettergrepen: " + AantalLettergrepen(woord) + " Complexiteit: " + complexiteitn;
+            complexiteitlbl.Content = "aantal karakters: " + AantalKarakters(woord) + " aantal lettergrepen: " + AantalLettergrepen(woord) + " Complexiteit: " + complexiteitnr;
 
         }
 
