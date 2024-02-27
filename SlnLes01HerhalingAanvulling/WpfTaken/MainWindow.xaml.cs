@@ -20,7 +20,7 @@ namespace WpfTaken
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        int controle = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +29,11 @@ namespace WpfTaken
         private void toekijkenBtn_Click(object sender, RoutedEventArgs e)
         {
             CheckForm();
+            if (controle == 4)
+            {
+                AddTask();
+            }
+            
         }
 
         private void TerugzettenBtn_Click(object sender, RoutedEventArgs e)
@@ -54,25 +59,53 @@ namespace WpfTaken
 
         private void CheckForm()
         {
+
+            controle = 0;
+            ControleerLbl.Content = "";
+            ControleerLbl.Foreground = Brushes.Red;
+
+
             if (Taaktbx.Text == "")
             {
+                
                 ControleerLbl.Content = "Gelieve een naam te geven aan uw taak";
-            }
-            else if (ProriteitCbx.SelectedIndex == 0)
-            {
-                ControleerLbl.Content = "Gelieve een prioriteit te selecteren";
-            }
-            else if (DateDp.SelectedDate == null)
-            {
-                ControleerLbl.Content = "Gelieve een deadline te selecteren";
-            }
-            else if (!(AdamRbn.IsChecked == true || BilalRbn.IsChecked == true || ChelseyRbn.IsChecked == true))
-            {
-                ControleerLbl.Content = "Gelieve een persoon toe te voegen";
             }
             else
             {
-                AddTask();
+                controle++;
+                ControleerLbl.Content = "";
+            }
+
+            if (ProriteitCbx.SelectedIndex == 0)
+            {
+                ControleerLbl.Content = ControleerLbl.Content + Environment.NewLine + "Gelieve een prioriteit te selecteren";
+            }
+            else
+            {
+                controle++;
+                ControleerLbl.Content = ControleerLbl.Content + Environment.NewLine + "";
+            }
+
+            if (DateDp.SelectedDate == null)
+            {
+                ControleerLbl.Content = ControleerLbl.Content + Environment.NewLine + "Gelieve een deadline te selecteren";
+                
+            }
+            else
+            {
+                controle++;
+                ControleerLbl.Content = ControleerLbl.Content + Environment.NewLine + "";
+            }
+
+            if (!(AdamRbn.IsChecked == true || BilalRbn.IsChecked == true || ChelseyRbn.IsChecked == true))
+            {
+                ControleerLbl.Content = ControleerLbl.Content + Environment.NewLine + "Gelieve een persoon toe te voegen";
+                
+            }
+            else
+            {
+                controle++;
+                ControleerLbl.Content = ControleerLbl.Content + Environment.NewLine + "";
             }
         }
 
@@ -121,6 +154,7 @@ namespace WpfTaken
         {
             CheckButtonsEnabled();
         }
+
     }
 
 

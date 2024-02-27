@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfLandenRanden.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLandenRanden"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Name="imageStackPanel" Grid.Row="0" Orientation="Horizontal">
+            <!-- Add Image controls here with appropriate source and Tag -->
+            <Image Source="" Tag="France" MouseUp="Image_MouseUp"/>
+            <Image Source="" Tag="Germany" MouseUp="Image_MouseUp"/>
+            <Image Source="" Tag="Italy" MouseUp="Image_MouseUp"/>
+            <Image Source="" Tag="Spain" MouseUp="Image_MouseUp"/>
+            <Image Source="" Tag="UK" MouseUp="Image_MouseUp"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Label x:Name="resultLabel" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>

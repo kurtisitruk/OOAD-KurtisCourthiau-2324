@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfTaken"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FF7CC3FF">
         <Label HorizontalAlignment="Left" Margin="129,98,0,0" VerticalAlignment="Top"/>
         <Label Content="Taak:" Margin="38,35,653,341"/>
         <Label Content="Prioriteit:" Margin="38,98,653,283"/>
@@ -22,10 +22,10 @@
             <ComboBoxItem Content="Zeer laag"></ComboBoxItem>
         </ComboBox>
         <DatePicker Name="DateDp" HorizontalAlignment="Left" Margin="114,167,0,0" VerticalAlignment="Top" Width="199"/>
-        <RadioButton x:Name="AdamRbn" GroupName="GemaaktDoor" Content="Alarm" HorizontalAlignment="Left" Margin="114,235,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.569,0.567"/>
+        <RadioButton x:Name="AdamRbn" GroupName="GemaaktDoor" Content="Adam" HorizontalAlignment="Left" Margin="114,235,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.569,0.567"/>
         <RadioButton x:Name="BilalRbn" GroupName="GemaaktDoor" Content="Billal" HorizontalAlignment="Left" Margin="192,235,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="ChelseyRbn" GroupName="GemaaktDoor" Content="Chelsey" HorizontalAlignment="Left" Margin="253,235,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.102,0.283"/>
-        <Button x:Name="toekijkenBtn" Content="TOEKIJKEN" HorizontalAlignment="Left" Margin="221,276,0,0" VerticalAlignment="Top" Width="92" Height="30" Click="toekijkenBtn_Click"/>
+        <Button x:Name="toekijkenBtn" Content="TOEVOEGEN" HorizontalAlignment="Left" Margin="221,276,0,0" VerticalAlignment="Top" Width="92" Height="30" Click="toekijkenBtn_Click"/>
         <Label x:Name="ControleerLbl" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="38,320,0,0" Height="73" Width="275" Background="White"/>
         <Button x:Name="TerugzettenBtn" Content="TERUGZETTEN" HorizontalAlignment="Left" Margin="405,334,0,0" VerticalAlignment="Top" Width="128" Height="36"/>
         <Button x:Name="VerwijderenBtn" Content="VERWIJDEREN" HorizontalAlignment="Left" Margin="580,334,0,0" VerticalAlignment="Top" Width="139" Height="36"/>
