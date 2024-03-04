@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfMinier.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMinier"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="478.67" Width="655.402">
+    <Grid Background="#FF89DAFF">
+        <Label Content="Startmap: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="109"/>
+        <TextBox x:Name="FileTbx" HorizontalAlignment="Left" Height="23" Margin="85,14,0,0" TextWrapping="Wrap" Text=" "  VerticalAlignment="Top" Width="409"/>
+        <ListBox x:Name="FileLbx" HorizontalAlignment="Left" Height="260" Margin="19,63,0,0" VerticalAlignment="Top" Width="605"/>
+        <Button x:Name="SelecteerBtn" Content="Selecteer" HorizontalAlignment="Left" Margin="526,14,0,0" VerticalAlignment="Top" Width="98" Height="23" Click="SelecteerBtn_Click"/>
+        <Button x:Name="ModifyAlsBtn" Content="Minify als..." HorizontalAlignment="Left" Margin="139,357,0,0" VerticalAlignment="Top" Width="100" Height="29"/>
+        <Button x:Name="ModifyBtn" Content="Minify" HorizontalAlignment="Left" Margin="19,357,0,0" VerticalAlignment="Top" Width="100" Height="29"/>
+
+    </Grid>
+</Window>
