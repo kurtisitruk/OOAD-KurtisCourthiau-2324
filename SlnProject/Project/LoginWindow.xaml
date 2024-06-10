@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBox x:Name="UsernameTextBox" Width="200" Margin="10"/>
-            <PasswordBox x:Name="PasswordBox" Width="200" Margin="10"/>
-            <TextBlock x:Name="ErrorMessageTextBlock" Foreground="Red" Margin="10"/>
-            <Button Content="Login" Width="200" Margin="10" Click="LoginButton_Click"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <Label Content="Login" FontSize="24"/>
+            <TextBox x:Name="UsernameTextBox" FontSize="24" Width="200" Margin="10"/>
+            <PasswordBox x:Name="PasswordBox" FontSize="24" Width="200" Margin="10"/>
+            <TextBlock x:Name="ErrorMessageTextBlock" FontSize="24" Foreground="Red" Margin="10"/>
+            <Button FontSize="24" Content="Login" Width="200" Margin="10" Click="LoginButton_Click"/>
         </StackPanel>
         
     </Grid>
