@@ -9,6 +9,7 @@
       Title="ExercisesPage">
 
     <Grid>
+        <WrapPanel x:Name="ExercisesWrapPanel" Margin="5"></WrapPanel>
         
     </Grid>
 </Page>

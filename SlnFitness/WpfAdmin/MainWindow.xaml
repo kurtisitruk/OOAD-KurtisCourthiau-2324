@@ -6,16 +6,17 @@
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FF001464">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" VerticalAlignment="Top">
-            <Button Content="Customers" Click="CustomersButton_Click"/>
-            <Button Content="Exercises" Click="ExercisesButton_Click"/>
-            <Button Content="Logout" Click="LogoutButton_Click"/>
+            <Button Margin="10" Content="Customers" Click="CustomersButton_Click"/>
+            <Button Margin="10" Content="Exercises" Click="ExercisesButton_Click"/>
+            <Button Margin="10" Content="Logout" Click="LogoutButton_Click"/>
+            <Image Margin="10,50" Height="150" Width="150"/>
         </StackPanel>
-        <Frame x:Name="MainFrame" Grid.Column="1"/>
+        <Frame Margin="20" x:Name="MainFrame" Grid.Column="1" Foreground="Black" Background="#FFB7B7B7"/>
     </Grid>
 </Window>
