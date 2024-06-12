@@ -27,12 +27,12 @@ namespace Project
             MainFrame.Navigate(new CustomersPage());
         }
 
-        private void CustomersButton_Click(object sender, RoutedEventArgs e)
+        private void CustomersBtn_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new CustomersPage());
         }
 
-        private void ExercisesButton_Click(object sender, RoutedEventArgs e)
+        private void ExercisesBtn_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new ExercisesPage());
         }
@@ -44,5 +44,6 @@ namespace Project
             loginWindow.Show();
             this.Close();
         }
+
     }
 }
