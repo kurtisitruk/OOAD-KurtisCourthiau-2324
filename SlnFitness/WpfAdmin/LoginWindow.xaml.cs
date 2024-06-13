@@ -28,64 +28,29 @@ namespace Project
             InitializeComponent();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            string username = UsernameTextBox.Text;
+            string username = UsernameTbx.Text;
             string password = PasswordBox.Password;
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            // Perform authentication logic (replace with your actual authentication logic)
+            if (AuthenticateUser(username, password))
             {
-                ErrorMessageTextBlock.Text = "Please enter both username and password.";
-                return;
+                // If authentication successful, close the login window
+                DialogResult = true;
             }
-
-            string passwordHash = ComputeSha256Hash(password);
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            else
             {
-                try
-                {
-                    conn.Open();
-                    string query = "SELECT * FROM Person WHERE Username = @Username AND PasswordHash = @PasswordHash";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@Username", username);
-                    cmd.Parameters.AddWithValue("@PasswordHash", passwordHash);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        bool isAdmin = reader.GetBoolean(reader.GetOrdinal("IsAdmin"));
-                        Application.Current.Properties["CurrentUser"] = username;
-                        Application.Current.Properties["IsAdmin"] = isAdmin;
-
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
-                        this.Close();
-                    }
-                    else
-                    {
-                        ErrorMessageTextBlock.Text = "Invalid username or password.";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ErrorMessageTextBlock.Text = "Database error: " + ex.Message;
-                }
+                // Show error message if authentication fails
+                ErrorMessageTbc.Text = "Invalid username or password.";
             }
         }
 
-        private static string ComputeSha256Hash(string rawData)
+        private bool AuthenticateUser(string username, string password)
         {
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2"));
-                }
-                return builder.ToString();
-            }
+            // Replace with your actual authentication logic (e.g., database query, API call)
+            // Example logic (for demonstration purposes only):
+            return username == "admin" && password == "password";
         }
     }
 }

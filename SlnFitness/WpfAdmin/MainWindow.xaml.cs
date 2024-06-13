@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfAdmin;
+using System.Windows;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Project
 {
@@ -21,6 +26,7 @@ namespace Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string FitnessDB = ConfigurationManager.ConnectionStrings["FitnessDB"].ConnectionString;
         public MainWindow()
         {
             InitializeComponent();
@@ -43,6 +49,15 @@ namespace Project
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
             this.Close();
+        }
+
+        private void TestDatabaseConnection()
+        {
+            using (var context = new FitnessDbContext())
+            {
+                var persons = context.Persons.ToList();
+                MessageBox.Show($"Found {persons.Count} persons in the database.");
+            }
         }
 
     }
