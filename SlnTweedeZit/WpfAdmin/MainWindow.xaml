@@ -1,9 +1,8 @@
-﻿<Window x:Class="Project.MainWindow"
+﻿<Window x:Class="WpfAdmin.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FF8DE5F4">
@@ -13,10 +12,10 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" VerticalAlignment="Top">
             <Button x:Name="CustomersBtn" Margin="10" Content="Customers"/>
-            <Button x:Name="ExercisesBtn" Margin="10" Content="Exercises" Click="ExercisesBtn_Click_1"/>
-            <Button Margin="10" Content="Logout" Click="LogoutButton_Click"/>
+            <Button x:Name="ExercisesBtn" Margin="10" Content="Exercises"/>
+            <Button Margin="10" Content="Logout"/>
             <Image Margin="10,50" Height="150" Width="150"/>
         </StackPanel>
-        <Frame Margin="20" x:Name="MainFrame" Grid.Column="1" Foreground="Black" Background="#FFB7B7B7"/>
+        <Frame Margin="20" x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Foreground="Black" Background="#FFB7B7B7"/>
     </Grid>
 </Window>

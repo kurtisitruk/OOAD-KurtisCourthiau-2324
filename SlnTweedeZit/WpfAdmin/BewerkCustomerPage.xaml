@@ -40,12 +40,12 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
                 <Image Height="200" Width="200" Margin="5"/>
-                <Button Content="Annuleren"  Height="26" Width="121" Margin="5" VerticalAlignment="Bottom" Click="Cancel_Click"/>
+                <Button Content="Annuleren"  Height="26" Width="121" Margin="5" VerticalAlignment="Bottom" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <Button Content="Opslaan"  Height="26" Width="121" Margin="5" Click="Save_Click"/>
-                <Button Content="Annuleren"  Height="26" Width="121" Margin="5" Click="Cancel_Click"/>
+                <Button Content="Opslaan"  Height="26" Width="121" Margin="5"/>
+                <Button Content="Annuleren"  Height="26" Width="121" Margin="5"/>
             </StackPanel>
 
         </Grid>
