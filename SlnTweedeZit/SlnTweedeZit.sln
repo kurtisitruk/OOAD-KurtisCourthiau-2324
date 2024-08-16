@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAdmin", "WpfAdmin\WpfAdmin.csproj", "{74424263-8FA7-4DEE-B7A1-E474CC2818C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfCostumer", "WpfCostumer\WpfCostumer.csproj", "{9D72E1BD-8DB9-4B88-812F-91C9C4CDD542}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{438BA764-C7A7-49D5-8557-52B5DB957864}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74424263-8FA7-4DEE-B7A1-E474CC2818C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74424263-8FA7-4DEE-B7A1-E474CC2818C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74424263-8FA7-4DEE-B7A1-E474CC2818C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74424263-8FA7-4DEE-B7A1-E474CC2818C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D72E1BD-8DB9-4B88-812F-91C9C4CDD542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D72E1BD-8DB9-4B88-812F-91C9C4CDD542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D72E1BD-8DB9-4B88-812F-91C9C4CDD542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D72E1BD-8DB9-4B88-812F-91C9C4CDD542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{438BA764-C7A7-49D5-8557-52B5DB957864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{438BA764-C7A7-49D5-8557-52B5DB957864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{438BA764-C7A7-49D5-8557-52B5DB957864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{438BA764-C7A7-49D5-8557-52B5DB957864}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
