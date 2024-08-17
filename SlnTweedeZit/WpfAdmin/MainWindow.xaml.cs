@@ -23,14 +23,17 @@ namespace WpfAdmin
         public MainWindow()
         {
             InitializeComponent();
-            OpenCustomerPage();
             
         }
 
-        public void OpenCustomerPage()
+        private void CustomersBtn_Click(object sender, RoutedEventArgs e)
         {
-          
+            MainFrame1.Content = new CustomerPage();
         }
-        
+
+        private void ExercisesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame1.Content = new ExercisesPage();
+        }
     }
 }

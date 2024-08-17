@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project.WpfAdmin
+namespace WpfAdmin
 {
     /// <summary>
     /// Interaction logic for CustomerPage.xaml
@@ -22,7 +22,7 @@ namespace Project.WpfAdmin
     {
         public CustomerPage()
         {
-            
+            InitializeComponent();
         }
     }
 }
