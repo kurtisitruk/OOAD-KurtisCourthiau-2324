@@ -23,7 +23,14 @@ namespace WpfAdmin
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new CustomersPage());
+            OpenCustomerPage();
+            
         }
+
+        public void OpenCustomerPage()
+        {
+          
+        }
+        
     }
 }

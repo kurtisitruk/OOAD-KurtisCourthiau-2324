@@ -39,6 +39,10 @@ namespace WpfAdmin
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
+
+                // Navigate to CustomersPage
+                mainWindow.MainFrame.Content = new CustomersPage();
+
                 this.Close();
             }
             else

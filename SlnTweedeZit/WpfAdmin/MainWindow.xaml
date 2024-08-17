@@ -16,6 +16,6 @@
             <Button Margin="10" Content="Logout"/>
             <Image Margin="10,50" Height="150" Width="150"/>
         </StackPanel>
-        <Frame Margin="20" x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Foreground="Black" Background="#FFB7B7B7"/>
+        <Frame NavigationUIVisibility="Hidden" Margin="20" x:Name="MainFrame" Grid.Column="1"/>
     </Grid>
 </Window>
