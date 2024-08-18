@@ -35,5 +35,12 @@ namespace WpfAdmin
         {
             MainFrame1.Content = new ExercisesPage();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
+        }
     }
 }

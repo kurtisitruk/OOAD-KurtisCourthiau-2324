@@ -23,17 +23,21 @@ namespace WpfAdmin
     public partial class LoginWindow : Window
     {
         private string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=ActiBuddyDB;Trusted_Connection=True;";
-
         public LoginWindow()
         {
             InitializeComponent();
             LoginBtn.Click += LoginBtn_Click;
         }
 
+        
+
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
+            
+            
             string username = UsernameTbx.Text;
             string password = PasswordBox.Password;
+
 
             if (ValidateUser(username, password))
             {

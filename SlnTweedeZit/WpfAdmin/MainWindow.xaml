@@ -12,8 +12,8 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" VerticalAlignment="Top">
             <Button x:Name="CustomersBtn" Margin="10" Content="Customers" Click="CustomersBtn_Click"/>
-            <Button x:Name="ExercisesBtn" Margin="10" Content="Exercises"/>
-            <Button Margin="10" Content="Logout"/>
+            <Button x:Name="ExercisesBtn" Margin="10" Content="Exercises" Click="ExercisesBtn_Click"/>
+            <Button Margin="10" Content="Logout" Click="Button_Click"/>
             <Image Margin="10,50" Height="150" Width="150"/>
         </StackPanel>
         <Frame NavigationUIVisibility="Hidden" Margin="20" x:Name="MainFrame1" Grid.Column="1"/>
