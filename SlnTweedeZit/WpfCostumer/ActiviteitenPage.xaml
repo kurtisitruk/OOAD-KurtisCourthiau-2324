@@ -1,0 +1,38 @@
+﻿<Page x:Class="WpfCostumer.ActiviteitenPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfCostumer"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ActiviteitenPage">
+    <Grid>
+        <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <!-- Filter section -->
+        <RowDefinition Height="*" />
+        <!-- DataGrid section -->
+    </Grid.RowDefinitions>
+
+    <!-- Filter Controls -->
+    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+        <TextBox x:Name="SearchTextBox" Width="200" Margin="0,0,10,0"/>
+        <ComboBox x:Name="ActivityTypeComboBox" Width="150" Margin="0,0,10,0">
+            <ComboBoxItem Content="Alle" IsSelected="True"/>
+            <ComboBoxItem Content="Type 1"/>
+            <ComboBoxItem Content="Type 2"/>
+        </ComboBox>
+        <ComboBox x:Name="AgeCategoryComboBox" Width="150">
+            <ComboBoxItem Content="Alle" IsSelected="True"/>
+            <ComboBoxItem Content="Leeftijd 1"/>
+            <ComboBoxItem Content="Leeftijd 2"/>
+        </ComboBox>
+        <Button Content="Refresh" Click="RefreshButton_Click" Margin="10,0,0,0"/>
+    </StackPanel>
+
+    <!-- DataGrid for displaying activities -->
+    <DataGrid x:Name="ActivitiesDataGrid" Grid.Row="1" AutoGenerateColumns="True" Margin="10"/>
+    </Grid>
+</Page>

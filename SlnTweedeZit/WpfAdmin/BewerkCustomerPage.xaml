@@ -3,7 +3,6 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WpfAdmin"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="BewerkCustomerPage">
@@ -27,25 +26,25 @@
         <Label VerticalAlignment="Center" Grid.Row="0" Content="Voornaam" FontWeight="Bold"/>
         <Label VerticalAlignment="Center" Grid.Row="1" Content="Achternaam" FontWeight="Bold"/>
         <Label VerticalAlignment="Center" Grid.Row="2" Content="Login" FontWeight="Bold"/>
-        <Label VerticalAlignment="Center" Grid.Row="3" Content="Passwoord" FontWeight="Bold"/>
+        <Label VerticalAlignment="Center" Grid.Row="3" Content="Paswoord" FontWeight="Bold"/>
 
-        <TextBox Margin="5" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
-        <TextBox Margin="5" Grid.Row="1" Grid.Column="1" Text="{Binding LastName}"/>
-        <TextBox Margin="5" Grid.Row="2" Grid.Column="1" Text="{Binding Login}"/>
-        <TextBox Margin="5" Grid.Row="3" Grid.Column="1" Text="{Binding Password}"/>
-        <Label Content="laat leeg indien ongewijzigd" Grid.Column="2" Grid.Row="3"/>
-        <CheckBox Content="Is admin" Grid.Row="4" Grid.Column="1" IsChecked="{Binding IsAdmin}"/>
+        <TextBox x:Name="VoornaamTbx" Margin="5" Grid.Row="0" Grid.Column="1" Text="{Binding Voornaam}"/>
+        <TextBox x:Name="AchternaamTbx" Margin="5" Grid.Row="1" Grid.Column="1" Text="{Binding Achternaam}"/>
+        <TextBox x:Name="LoginTbx" Margin="5" Grid.Row="2" Grid.Column="1" Text="{Binding Login}"/>
+        <TextBox x:Name="PaswoorTbx" Margin="5" Grid.Row="3" Grid.Column="1" Text="{Binding Paswoord}"/>
+        <Label Content="Laat leeg indien ongewijzigd" Grid.Column="2" Grid.Row="3"/>
+        <CheckBox x:Name="IsAdminCbx" Content="Is admin" Grid.Row="4" Grid.Column="1" IsChecked="{Binding IsAdmin}"/>
 
-        <Grid Width="800" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" >
+        <Grid Width="800" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3">
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
                 <Image Height="200" Width="200" Margin="5"/>
-                <Button Content="Annuleren"  Height="26" Width="121" Margin="5" VerticalAlignment="Bottom" />
+                <Button Content="Annuleren" Height="26" Width="121" Margin="5" VerticalAlignment="Bottom" Click="Annuleren_Click"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <Button Content="Opslaan"  Height="26" Width="121" Margin="5"/>
-                <Button Content="Annuleren"  Height="26" Width="121" Margin="5"/>
+                <Button Content="Opslaan" Height="26" Width="121" Margin="5" Click="Opslaan_Click"/>
+                <Button Content="Annuleren" Height="26" Width="121" Margin="5" Click="Annuleren_Click"/>
             </StackPanel>
 
         </Grid>

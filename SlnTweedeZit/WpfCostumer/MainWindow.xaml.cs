@@ -23,6 +23,28 @@ namespace WpfCostumer
         public MainWindow()
         {
             InitializeComponent();
+            // Load initial page
+            MainFrame.Content = new ActiviteitenPage();
+        }
+
+        // Activiteiten Button Click Event
+        private void ActiviteitenBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new ActiviteitenPage();
+        }
+
+        // Organiseer Button Click Event
+        private void OrganiseerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new OrganiseerPage();
+        }
+
+        // Uitloggen Button Click Event
+        private void UitloggenBtn_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
         }
     }
 }

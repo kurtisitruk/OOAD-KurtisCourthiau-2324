@@ -6,7 +6,33 @@
         xmlns:local="clr-namespace:WpfCostumer"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="#FFF44A4A">
+        <!-- Define Grid Structure -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- StackPanel for Buttons and Profile Picture -->
+        <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Top">
+            <!-- Activiteiten Button -->
+            <Button x:Name="ActiviteitenBtn" Content="Activiteiten" Margin="10" Click="ActiviteitenBtn_Click"/>
+            <!-- Organiseer Button -->
+            <Button x:Name="OrganiseerBtn" Content="Organiseer" Margin="10" Click="OrganiseerBtn_Click"/>
+            <!-- Uitloggen Button -->
+            <Button x:Name="UitloggenBtn" Content="Uitloggen" Margin="10" Click="UitloggenBtn_Click"/>
+        </StackPanel>
+
+        <!-- Profile Picture -->
+        <Image x:Name="ProfileImage" Height="100" Width="100" Margin="10" 
+               VerticalAlignment="Bottom" HorizontalAlignment="Left" 
+               Grid.Column="0" Grid.Row="1" />
+
+        <!-- Frame for Displaying Pages -->
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.RowSpan="2" Margin="10"/>
     </Grid>
 </Window>

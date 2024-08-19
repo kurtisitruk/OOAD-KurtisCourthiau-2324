@@ -40,9 +40,9 @@
 
         </Grid>
         <StackPanel Grid.Column="1" VerticalAlignment="Bottom" Margin="20"  Orientation="Horizontal">
-            <Button Content="Bewerk" Margin="10"/>
-            <Button Content="verwijder" Margin="10"/>
-            <Button Content="Nieuw" Margin="10"/>
+            <Button x:Name="bewerkBtn" Content="Bewerk" Margin="10" Click="bewerkBtn_Click_1"/>
+            <Button x:Name="VerwijdeBtn" Content="verwijder" Margin="10" Click="VerwijdeBtn_Click"/>
+            <Button x:Name="NieuwCBtn" Content="Nieuw" Margin="10" Click="NieuwCBtn_Click"/>
 
         </StackPanel>
 

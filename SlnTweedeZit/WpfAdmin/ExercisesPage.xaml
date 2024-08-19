@@ -9,6 +9,38 @@
       Title="ExercisesPage">
 
     <Grid>
-        
+        <!-- Filtering and Searching Controls -->
+        <StackPanel Orientation="Vertical" Margin="10">
+            <TextBox x:Name="SearchTextBox" Width="300" Margin="0,0,0,10" TextChanged="SearchTextBox_TextChanged"/>
+            <DatePicker x:Name="DatePicker" Width="200" Margin="0,0,0,10" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+            <CheckBox x:Name="TypeCheckBox1" Content="Type 1" Margin="0,0,10,0" Checked="TypeCheckBox_Checked" Unchecked="TypeCheckBox_Unchecked"/>
+            <CheckBox x:Name="TypeCheckBox2" Content="Type 2" Margin="0,0,10,0" Checked="TypeCheckBox_Checked" Unchecked="TypeCheckBox_Unchecked"/>
+            <Button Content="Refresh" Click="RefreshButton_Click"/>
+        </StackPanel>
+
+        <!-- ItemsControl for Activities -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="10">
+            <ItemsControl x:Name="ActivitiesItemsControl">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="10" BorderBrush="Black" BorderThickness="1" CornerRadius="5" Padding="10" Width="300" Height="200">
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="{Binding Icoon}" Height="100" Width="100" />
+                                <TextBlock Text="{Binding Naam}" FontWeight="Bold" />
+                                <TextBlock Text="{Binding Datum, StringFormat=d}" />
+                                <TextBlock Text="{Binding Beschrijving, StringFormat={}{0:0.##} characters}" />
+                                <TextBlock Text="{Binding Organisator}" />
+                                <TextBlock Text="{Binding MaxPersonen, StringFormat='Max Personen: {0}'}" />
+                                <TextBlock Text="{Binding DeelnameLijst.Count, StringFormat='Ingeschreven: {0}'}" />
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Details" Command="{Binding DataContext.DetailsCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                    <Button Content="Verwijder" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </Page>

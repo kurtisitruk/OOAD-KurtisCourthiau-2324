@@ -29,21 +29,26 @@ namespace WpfAdmin
             LoginBtn.Click += LoginBtn_Click;
         }
 
-        
+
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            
-            
             string username = UsernameTbx.Text;
             string password = PasswordBox.Password;
 
-
-            if (ValidateUser(username, password))
+            // Check if the user is an admin
+            if (ValidateUser(username, password, out bool isAdmin))
             {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                if (isAdmin)
+                {
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    ErrorMessageTbc.Text = "Jij bent geen admin.";
+                }
             }
             else
             {
@@ -51,10 +56,11 @@ namespace WpfAdmin
             }
         }
 
-        private bool ValidateUser(string username, string password)
+
+
+        private bool ValidateUser(string username, string password, out bool isAdmin)
         {
-            // SQL query to check user credentials
-            string query = "SELECT COUNT(1) FROM Persoon WHERE login = @username AND paswoord = @password";
+            string query = "SELECT IsAdmin FROM Persoon WHERE login = @username AND paswoord = @password";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -65,12 +71,23 @@ namespace WpfAdmin
                 try
                 {
                     connection.Open();
-                    int count = (int)command.ExecuteScalar();
-                    return count > 0;
+                    object result = command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        isAdmin = Convert.ToBoolean(result);
+                        return true;
+                    }
+                    else
+                    {
+                        isAdmin = false;
+                        return false;
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    isAdmin = false;
                     return false;
                 }
             }
